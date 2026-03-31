@@ -1,32 +1,36 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class pMovment : MonoBehaviour
 {
     Rigidbody2D pRB;
-    [SerializeField] float moveSpeed = 5;
-    [SerializeField] Vector2 moveVector;
+    [SerializeField] float pMoveSpeed = 5;
+    [SerializeField] Vector2 pMoveVector;
     InputAction moveAction;
+    InputAction tillAction;
+    [SerializeField] GameObject TilledTile;
+    
+    //float, int, bool, GAMEOBJECT!!
 
-    public bool isFacingRight;
-    public bool isFacingDown;
-
-
+    [SerializeField] List<Sprite> pSprites;
+    SpriteRenderer pSpriteRenderer;
 
     void Start()
     {
         pRB = GetComponent<Rigidbody2D>();
+        pSpriteRenderer = GetComponent<SpriteRenderer>();
         pInput();
-        isFacingRight = true;
-        isFacingDown = true;
+        
     }
 
 
     void FixedUpdate()
     {
 
-        moveVector = moveAction.ReadValue<Vector2>();
-        pRB.linearVelocity = moveVector * moveSpeed;
+        pMoveVector = moveAction.ReadValue<Vector2>();
+        pRB.linearVelocity = pMoveVector * pMoveSpeed;
 
         pDirecrionMod();
     }
@@ -34,54 +38,94 @@ public class pMovment : MonoBehaviour
 
     void pInput()
     {
+
+        //add actions here
+
         moveAction = InputSystem.actions.FindAction("Move");
 
-
+        tillAction = InputSystem.actions.FindAction("Attack");
 
     }
 
     void pDirecrionMod()
     {
-        //cheching direction of movement
-        if (moveVector.x > 0)
-        {
-            isFacingRight = true;
-        }
-        else if (moveVector.x < 0)
-        {
-            isFacingRight = false;
-        }
-
-        if (moveVector.y > 0)
-        {
-            isFacingDown = false;
-        }
-        else if (moveVector.y < 0)
-        {
-            isFacingDown = true;
-        }
+        
+        
 
 
 
-        //Fliping sprite depending on player direction
+        //Changing and/or fliping sprite depending on player direction
 
-        if (isFacingRight)
+        if(pMoveVector.magnitude > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        else if (!isFacingRight)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
 
-        if (isFacingDown)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        else if (!isFacingDown)
-        {
-            transform.localScale = new Vector3(1, -1, 1);
-        }
+            //Plater moves
+
+            if(pMoveVector.x > 0 && pMoveVector.y == 0)
+            {
+                //RIGHT
+                pSpriteRenderer.sprite = pSprites[2];
+                transform.localScale = new Vector3(-1, 1, 1);
+
+            }
+            if (pMoveVector.x < 0 && pMoveVector.y == 0)
+            {
+                //LEFT
+                pSpriteRenderer.sprite = pSprites[2];
+                transform.localScale = new Vector3(1, 1, 1);
+
+            }
+
+
+
+
+            if (pMoveVector.x == 0 && pMoveVector.y > 0)
+            {
+                //UP
+                pSpriteRenderer.sprite = pSprites[1];
+            }
+            if (pMoveVector.x == 0 && pMoveVector.y < 0)
+            {
+                //DOWN
+                pSpriteRenderer.sprite = pSprites[0];
+            }
+
+
+
+
+
+            if (pMoveVector.x > 0 && pMoveVector.y > 0)
+            {
+                //DIAGONAL UP RIGHT
+                pSpriteRenderer.sprite = pSprites[2];
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            if (pMoveVector.x < 0 && pMoveVector.y > 0)
+            {
+                //DIAGONAL UP LEFT
+                pSpriteRenderer.sprite = pSprites[2];
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+
+
+
+            if (pMoveVector.x > 0 && pMoveVector.y < 0)
+            {
+                //DIAGONAL DOWN RIGHT
+                pSpriteRenderer.sprite = pSprites[2];
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            if (pMoveVector.x < 0 && pMoveVector.y < 0)
+            {
+                //DIAGONAL DOWN LEFT
+                pSpriteRenderer.sprite = pSprites[2];
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+
+
+        }  
+
+        
 
 
 
@@ -91,9 +135,13 @@ public class pMovment : MonoBehaviour
     }
 
 
-
-
-
+    void pTillTile()
+    {
+        if (tillAction.WasPerformedThisFrame())
+        {
+            //Hitta bättre sätt att till tile 
+        }
+    }
 
 
 }

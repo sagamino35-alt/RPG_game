@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: de4946f0a5452ee44a6fe8aaff8392da
+guid: f59b9841a65c8d140a751948a650c1d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8955349528491825242
-    second: Test_down_0
+      213: 7745484225332197882
+    second: TilledTile_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -73,9 +73,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Test_down_0
+      name: TilledTile_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 51
-        height: 116
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a768c22d0538b380800000000000000
-      internalID: -8955349528491825242
+      spriteID: af931589ddc7d7b60800000000000000
+      internalID: 7745484225332197882
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Test_down_0: -8955349528491825242
+      TilledTile_0: 7745484225332197882
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
