@@ -10,12 +10,14 @@ public class pMovment : MonoBehaviour
     [SerializeField] Vector2 pMoveVector;
     InputAction moveAction;
     InputAction tillAction;
-    [SerializeField] GameObject TilledTile;
     
     //float, int, bool, GAMEOBJECT!!
 
     [SerializeField] List<Sprite> pSprites;
     SpriteRenderer pSpriteRenderer;
+
+    
+
 
     void Start()
     {
@@ -32,7 +34,7 @@ public class pMovment : MonoBehaviour
         pMoveVector = moveAction.ReadValue<Vector2>();
         pRB.linearVelocity = pMoveVector * pMoveSpeed;
 
-        pDirecrionMod();
+        pDirectionMod();
     }
 
 
@@ -47,7 +49,7 @@ public class pMovment : MonoBehaviour
 
     }
 
-    void pDirecrionMod()
+    void pDirectionMod()
     {
         
         
