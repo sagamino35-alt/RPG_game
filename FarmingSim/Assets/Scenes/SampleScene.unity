@@ -8655,7 +8655,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1612882443}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2020040385}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: ToggleInventory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1612882443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10163,10 +10175,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2020040380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd14e116cea22c4ca9571e50beae996, type: 3}
+  m_Script: {fileID: 11500000, guid: cb0fd83ca104b6244b45a1318e06c888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
   inventoryPanel: {fileID: 1939478799}
+  player: {fileID: 0}
+  slots: []
 --- !u!1 &2030109316
 GameObject:
   m_ObjectHideFlags: 0

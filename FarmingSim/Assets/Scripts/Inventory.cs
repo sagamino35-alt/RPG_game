@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
         public int count;
         public int maxCount;
 
+        public Sprite icon;
         public Slot()
         {
             type = CollectableType.NONE;
@@ -31,9 +32,10 @@ public class Inventory : MonoBehaviour
             return false;
         }
 
-        public void AddItem(CollectableType type)
+        public void AddItem(PickUp item)
         {
-            this.type = type;
+            this.type = item.type;
+            this.icon = item.icon;
             count++;
         }
 
@@ -54,13 +56,13 @@ public class Inventory : MonoBehaviour
     }
 
 
-    public void Add(CollectableType typeToAdd)
+    public void Add(PickUp item)
     {
         foreach(Slot slot in slots)
         {
-            if (slot.type == typeToAdd && slot.CanAddItem())
+            if (slot.type == item.type && slot.CanAddItem())
             {
-                slot.AddItem(typeToAdd);
+                slot.AddItem(item);
                 return;
             }
         }
@@ -69,7 +71,7 @@ public class Inventory : MonoBehaviour
         {
             if (slot.type == CollectableType.NONE)
             {
-                slot.AddItem(typeToAdd);
+                slot.AddItem(item);
                 return;
             }
         }

@@ -527,9 +527,9 @@
                 },
                 {
                     "name": "ExitUI",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "6ff2568d-4727-43c2-b985-b1ec28a503a3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
