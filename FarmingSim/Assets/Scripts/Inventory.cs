@@ -3,7 +3,7 @@ using NUnit.Framework;
 using UnityEngine;
 
 [System.Serializable]
-public class Inventory : MonoBehaviour
+public class Inventory
 {
     [System.Serializable]
     public class Slot
