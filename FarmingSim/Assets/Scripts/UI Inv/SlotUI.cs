@@ -7,6 +7,8 @@ public class SlotUI : MonoBehaviour
     public Image itemIcon;
     public TextMeshProUGUI itemAmountText;
 
+    
+
     public void SetItem(Inventory.Slot slot)
     {
         if (slot != null)

@@ -67,14 +67,14 @@ public class pMovment : MonoBehaviour
             {
                 //RIGHT
                 pSpriteRenderer.sprite = pSprites[2];
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(1, 1, 1);
 
             }
             if (pMoveVector.x < 0 && pMoveVector.y == 0)
             {
                 //LEFT
                 pSpriteRenderer.sprite = pSprites[2];
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(-1, 1, 1);
 
             }
 
@@ -100,13 +100,13 @@ public class pMovment : MonoBehaviour
             {
                 //DIAGONAL UP RIGHT
                 pSpriteRenderer.sprite = pSprites[2];
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(1, 1, 1);
             }
             if (pMoveVector.x < 0 && pMoveVector.y > 0)
             {
                 //DIAGONAL UP LEFT
                 pSpriteRenderer.sprite = pSprites[2];
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(-1, 1, 1);
             }
 
 
@@ -115,13 +115,13 @@ public class pMovment : MonoBehaviour
             {
                 //DIAGONAL DOWN RIGHT
                 pSpriteRenderer.sprite = pSprites[2];
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(1, 1, 1);
             }
             if (pMoveVector.x < 0 && pMoveVector.y < 0)
             {
                 //DIAGONAL DOWN LEFT
                 pSpriteRenderer.sprite = pSprites[2];
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(-1, 1, 1);
             }
 
 

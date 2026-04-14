@@ -6,6 +6,10 @@ using UnityEngine;
 public class Inventory
 {
     [System.Serializable]
+    
+    
+    
+    
     public class Slot
     {
 
@@ -38,6 +42,20 @@ public class Inventory
             this.icon = item.icon;
             count++;
         }
+
+        public void RemoveItem()
+        {
+            if (count > 0)
+            {
+                count--;
+                if (count == 0)
+                {
+                    icon = null;
+                    type = CollectableType.NONE;
+                }
+            }
+        }
+
 
 
     }
@@ -78,5 +96,13 @@ public class Inventory
 
 
     }
+    public void Remove(int index)
+    {
+        slots[index].RemoveItem();
+    }
+
+
+
+
 
 }

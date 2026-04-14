@@ -27,13 +27,17 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        Refresh();
+    }
 
     public void ToggleInventory()
     {
         if (!inventoryPanel.activeSelf)
         {
             inventoryPanel.SetActive(true);
-            Setup();
+            Refresh();
         }
         else
         {
@@ -45,7 +49,7 @@ public class InventoryUI : MonoBehaviour
 
     }
 
-    void Setup()
+    void Refresh()
     {
         if (slots.Count == player.inventory.slots.Count)
         {
@@ -63,5 +67,18 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    public void Remove(int slotID)
+    {
 
+        PickUp itemToDrop = GameManager.instance.itemManager.GetItemByType(player.inventory.slots[slotID].type);
+
+        if (itemToDrop != null)
+        {
+            player.DropItem(itemToDrop);
+            
+            player.inventory.Remove(slotID);
+            Refresh();
+        }
+        
+    }
 }
