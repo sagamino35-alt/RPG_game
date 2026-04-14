@@ -16,11 +16,11 @@ public class Player : MonoBehaviour
         //Picks location to instantiate dropped Item
         if (transform.localScale.x > 0)
         {
-             spawnLocation = transform.position + new Vector3(-1.5f, 0f, 0f);
+             spawnLocation = transform.position + new Vector3(1.5f, 0f, 0f);
         }
         else
         {
-             spawnLocation = transform.position + new Vector3(1.5f, 0f, 0f);
+             spawnLocation = transform.position + new Vector3(-1.5f, 0f, 0f);
         }
         
         
