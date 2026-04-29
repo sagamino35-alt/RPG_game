@@ -9,7 +9,6 @@ public class pMovment : MonoBehaviour
     [SerializeField] float pMoveSpeed = 5;
     [SerializeField] Vector2 pMoveVector;
     InputAction moveAction;
-    InputAction tillAction;
 
     public Animator pAnimator;
     public bool LookingUp;
@@ -55,7 +54,7 @@ public class pMovment : MonoBehaviour
 
         moveAction = InputSystem.actions.FindAction("Move");
 
-        tillAction = InputSystem.actions.FindAction("Attack");
+        
 
     }
 
@@ -188,13 +187,7 @@ public class pMovment : MonoBehaviour
     }
 
 
-    void pTillTile()
-    {
-        if (tillAction.WasPerformedThisFrame())
-        {
-            //Hitta bättre sätt att till tile 
-        }
-    }
+   
 
 
 }

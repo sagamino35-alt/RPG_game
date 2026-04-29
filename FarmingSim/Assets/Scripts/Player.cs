@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
     public Inventory inventory;
+    InputAction tillAction;
 
     private void Awake()
     {
@@ -10,7 +13,30 @@ public class Player : MonoBehaviour
         inventory = new Inventory(21);
     }
 
-    public void DropItem(PickUp item)
+
+    private void Start()
+    {
+        tillAction = InputSystem.actions.FindAction("Attack");
+    }
+
+    private void Update()
+    {
+        if (tillAction.WasPerformedThisFrame())
+        {
+            Vector3Int position = new Vector3Int((int)transform.position.x, (int)transform.position.y, 0);
+
+            if (GameManager.instance.interactableTileManager.IsTileInteractable(position))
+            {
+                Debug.Log("Tile is interactable");
+                GameManager.instance.interactableTileManager.SetTilledTile(position);
+            }
+        }
+        //Checks if player is trying to till a tile and if the tile is interactable, then tills it
+
+
+    }
+
+    public void DropItem(Item item)
     {
         Vector2 spawnLocation = new Vector2(0,0);
         //Picks location to instantiate dropped Item
@@ -25,7 +51,7 @@ public class Player : MonoBehaviour
         
         
         //Instantiates item at location
-        PickUp dropItem = Instantiate(item, spawnLocation, Quaternion.identity);
+        Item dropItem = Instantiate(item, spawnLocation, Quaternion.identity);
 
 
          //drop effect

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 581425183723744081}
   - component: {fileID: 8657288477035029652}
   - component: {fileID: 4906317063458405199}
+  - component: {fileID: 9117166003781218201}
   m_Layer: 0
   m_Name: Carrot Seed PickUp
   m_TagString: Untagged
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 9c9ee853f52502c43952689cee40644b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -152,9 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13102e6d7fa5e6747a09c0fbc284ce15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUp
-  itemRB: {fileID: 0}
-  type: 1
-  icon: {fileID: 21300000, guid: 9c9ee853f52502c43952689cee40644b, type: 3}
 --- !u!50 &4906317063458405199
 Rigidbody2D:
   serializedVersion: 5
@@ -182,3 +180,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &9117166003781218201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082267855697663962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50d9a56cb3a9854b8db83771ba80b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  data: {fileID: 11400000, guid: e906fd80df0700b4aadcab47720b4972, type: 2}
+  itemRB: {fileID: 0}

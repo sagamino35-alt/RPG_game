@@ -881,6 +881,7 @@ GameObject:
   - component: {fileID: 99610638}
   - component: {fileID: 99610640}
   - component: {fileID: 99610639}
+  - component: {fileID: 99610641}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -915,8 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c3b28f6a4d6cf48bf5be8876bb8462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemManager
-  collectableItems:
-  - {fileID: 8657288477035029652, guid: 46f25cbcb3dad594c8b1a66ea76eeeea, type: 3}
+  items:
+  - {fileID: 9117166003781218201, guid: 46f25cbcb3dad594c8b1a66ea76eeeea, type: 3}
 --- !u!114 &99610640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,6 +931,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   itemManager: {fileID: 0}
+  interactableTileManager: {fileID: 0}
+--- !u!114 &99610641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99610637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6bb06b65f9a75948a523a457f76966b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableTileManager
+  interactableMap: {fileID: 621773750}
+  InvisibleTile: {fileID: 11400000, guid: bd8b6a3a41b67ba45a11be07ccb9c246, type: 2}
+  TilledTile: {fileID: 11400000, guid: 32a53e8603755d44699e3beea978b191, type: 2}
 --- !u!114 &173793662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2886,6 +2903,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   playerPos: {fileID: 1046333587}
   offset: {x: 0, y: 0, z: -10}
+--- !u!1 &545578972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 545578973}
+  m_Layer: 5
+  m_Name: Toolbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &545578973
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545578972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2020040384}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &572126818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4758,13 +4810,13 @@ Tilemap:
     m_Data: {r: 0.97751534, g: 0.59583277, b: 0.68608993, a: 1}
   - serializedVersion: 2
     m_RefCount: 0
-    m_Data: {r: 0.9811342, g: 0.6068894, b: 0.7149806, a: 1}
+    m_Data: {r: 1, g: 1, b: 1, a: 0.14901961}
   - serializedVersion: 2
     m_RefCount: 145
-    m_Data: {r: 1, g: 1, b: 1, a: 1}
+    m_Data: {r: 1, g: 1, b: 1, a: 0.15686275}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0.1254902}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -8, y: -7, z: 0}
   m_Size: {x: 19, y: 10, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -5390,7 +5442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 122}
   m_SizeDelta: {x: 990.3885, y: 667.7432}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &807713046
@@ -5533,7 +5585,7 @@ Transform:
   m_GameObject: {fileID: 1046333584}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5626,87 +5678,87 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   inventory:
     slots:
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
-    - type: 0
+    - itemName: 
       count: 0
       maxCount: 0
       icon: {fileID: 0}
@@ -5779,7 +5831,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1652396045668998062, guid: 899ac4c601f3e7545b4db597654c16d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14055,6 +14107,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1939478800}
+  - {fileID: 545578973}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -14287,10 +14340,6 @@ PrefabInstance:
     - target: {fileID: 1082267855697663962, guid: 46f25cbcb3dad594c8b1a66ea76eeeea, type: 3}
       propertyPath: m_Name
       value: Carrot Seed PickUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2185551320121911119, guid: 46f25cbcb3dad594c8b1a66ea76eeeea, type: 3}
-      propertyPath: m_SortingOrder
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4568256186211611278, guid: 46f25cbcb3dad594c8b1a66ea76eeeea, type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,16 +1,43 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class InteractableTileManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] Tilemap interactableMap;
+    [SerializeField] Tile InvisibleTile;
+
+    [SerializeField] Tile TilledTile;
     void Start()
     {
-        
+        foreach (var position in interactableMap.cellBounds.allPositionsWithin)
+        {
+            if (interactableMap.HasTile(position))
+            {
+                interactableMap.SetTile(position, InvisibleTile);
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool IsTileInteractable(Vector3Int position)
     {
-        
+        TileBase tile = interactableMap.GetTile(position);
+        if (tile != null)
+        {
+            if (tile.name == "Interactable_Tile_Invisible")
+            {
+                return true;
+            }
+        }
+
+        return false;
+
     }
+
+    public void SetTilledTile(Vector3Int position)
+    {
+        interactableMap.SetTile(position, TilledTile);
+    }
+
+
+
 }
