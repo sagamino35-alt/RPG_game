@@ -10,7 +10,15 @@ public class pMovment : MonoBehaviour
     [SerializeField] Vector2 pMoveVector;
     InputAction moveAction;
     InputAction tillAction;
-    
+
+    public Animator pAnimator;
+    public bool LookingUp;
+    public bool LookingDown;
+    public bool LookingLeft;
+    public bool LookingRight;
+    public bool isMoving;
+
+
     //float, int, bool, GAMEOBJECT!!
 
     [SerializeField] List<Sprite> pSprites;
@@ -24,7 +32,9 @@ public class pMovment : MonoBehaviour
         pRB = GetComponent<Rigidbody2D>();
         pSpriteRenderer = GetComponent<SpriteRenderer>();
         pInput();
-        
+        pAnimator = GetComponent<Animator>();
+
+
     }
 
 
@@ -52,29 +62,36 @@ public class pMovment : MonoBehaviour
     void pDirectionMod()
     {
         
-        
-
-
-
         //Changing and/or fliping sprite depending on player direction
+
 
         if(pMoveVector.magnitude > 0)
         {
+            isMoving = true;
+            
+            //Player moves direction
 
-            //Plater moves
-
-            if(pMoveVector.x > 0 && pMoveVector.y == 0)
+            if (pMoveVector.x > 0 && pMoveVector.y == 0)
             {
                 //RIGHT
-                pSpriteRenderer.sprite = pSprites[2];
+                //pSpriteRenderer.sprite = pSprites[2];
                 transform.localScale = new Vector3(1, 1, 1);
+                LookingUp = false;
+                LookingDown = false;
+                LookingRight = true;
+                LookingLeft = false;
+                
 
             }
             if (pMoveVector.x < 0 && pMoveVector.y == 0)
             {
                 //LEFT
-                pSpriteRenderer.sprite = pSprites[2];
+                //pSpriteRenderer.sprite = pSprites[2];
                 transform.localScale = new Vector3(-1, 1, 1);
+                LookingUp = false;
+                LookingDown = false;
+                LookingLeft = true;
+                LookingRight = false;
 
             }
 
@@ -84,12 +101,20 @@ public class pMovment : MonoBehaviour
             if (pMoveVector.x == 0 && pMoveVector.y > 0)
             {
                 //UP
-                pSpriteRenderer.sprite = pSprites[1];
+                //pSpriteRenderer.sprite = pSprites[1];
+                LookingUp = true;
+                LookingDown = false;
+                LookingLeft = false;
+                LookingRight = false;
             }
             if (pMoveVector.x == 0 && pMoveVector.y < 0)
             {
                 //DOWN
-                pSpriteRenderer.sprite = pSprites[0];
+                //pSpriteRenderer.sprite = pSprites[0];
+                LookingUp = false;
+                LookingDown = true;
+                LookingLeft = false;
+                LookingRight = false;
             }
 
 
@@ -99,14 +124,22 @@ public class pMovment : MonoBehaviour
             if (pMoveVector.x > 0 && pMoveVector.y > 0)
             {
                 //DIAGONAL UP RIGHT
-                pSpriteRenderer.sprite = pSprites[2];
+                //pSpriteRenderer.sprite = pSprites[2];
                 transform.localScale = new Vector3(1, 1, 1);
+                LookingUp = false;
+                LookingDown = false;
+                LookingRight = true;
+                LookingLeft = false;
             }
             if (pMoveVector.x < 0 && pMoveVector.y > 0)
             {
                 //DIAGONAL UP LEFT
-                pSpriteRenderer.sprite = pSprites[2];
+                //pSpriteRenderer.sprite = pSprites[2];
                 transform.localScale = new Vector3(-1, 1, 1);
+                LookingUp = false;
+                LookingDown = false;
+                LookingRight = false;
+                LookingLeft = true;
             }
 
 
@@ -114,21 +147,39 @@ public class pMovment : MonoBehaviour
             if (pMoveVector.x > 0 && pMoveVector.y < 0)
             {
                 //DIAGONAL DOWN RIGHT
-                pSpriteRenderer.sprite = pSprites[2];
+                //pSpriteRenderer.sprite = pSprites[2];
                 transform.localScale = new Vector3(1, 1, 1);
+                LookingUp = false;
+                LookingDown = false;
+                LookingRight = true;
+                LookingLeft = false;
             }
             if (pMoveVector.x < 0 && pMoveVector.y < 0)
             {
                 //DIAGONAL DOWN LEFT
-                pSpriteRenderer.sprite = pSprites[2];
+                //pSpriteRenderer.sprite = pSprites[2];
                 transform.localScale = new Vector3(-1, 1, 1);
+                LookingUp = false;
+                LookingDown = false;
+                LookingRight = false;
+                LookingLeft = true;
+
             }
 
 
-        }  
+        }
+        else
+        {
+            isMoving = false;
+        }
 
-        
 
+
+        pAnimator.SetBool("IsMoving", isMoving);
+        pAnimator.SetBool("Up", LookingUp);
+        pAnimator.SetBool("Down", LookingDown);
+        pAnimator.SetBool("Right", LookingRight);
+        pAnimator.SetBool("Left", LookingLeft);
 
 
 
