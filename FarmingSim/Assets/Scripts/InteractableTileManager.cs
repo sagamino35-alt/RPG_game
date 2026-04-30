@@ -6,9 +6,13 @@ public class InteractableTileManager : MonoBehaviour
     [SerializeField] Tilemap interactableMap;
     [SerializeField] Tile InvisibleTile;
 
-    [SerializeField] Tile TilledTile;
+    [SerializeField] RuleTile TilledTile;
+   
+
     void Start()
     {
+       
+
         foreach (var position in interactableMap.cellBounds.allPositionsWithin)
         {
             if (interactableMap.HasTile(position))
@@ -36,6 +40,7 @@ public class InteractableTileManager : MonoBehaviour
     public void SetTilledTile(Vector3Int position)
     {
         interactableMap.SetTile(position, TilledTile);
+
     }
 
 
