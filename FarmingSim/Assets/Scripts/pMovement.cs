@@ -20,16 +20,12 @@ public class pMovment : MonoBehaviour
 
     //float, int, bool, GAMEOBJECT!!
 
-    [SerializeField] List<Sprite> pSprites;
-    SpriteRenderer pSpriteRenderer;
-
     
 
 
     void Start()
     {
         pRB = GetComponent<Rigidbody2D>();
-        pSpriteRenderer = GetComponent<SpriteRenderer>();
         pInput();
         pAnimator = GetComponent<Animator>();
 
