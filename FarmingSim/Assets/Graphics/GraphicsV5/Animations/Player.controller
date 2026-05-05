@@ -1900,7 +1900,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pIdle_Front
+  m_Name: pIdle_Down
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -2118,7 +2118,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pRun_Front
+  m_Name: pRun_Down
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -2188,7 +2188,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pIdle_Back
+  m_Name: pIdle_Up
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -2332,7 +2332,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pRun_Back
+  m_Name: pRun_Up
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

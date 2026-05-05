@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -6,7 +7,7 @@ public class InteractableTileManager : MonoBehaviour
     [SerializeField] Tilemap interactableMap;
     [SerializeField] Tile InvisibleTile;
 
-    [SerializeField] RuleTile TilledTile;
+    [SerializeField] Tile TilledTile;
    
 
     void Start()
@@ -17,6 +18,7 @@ public class InteractableTileManager : MonoBehaviour
         {
             if (interactableMap.HasTile(position))
             {
+                
                 interactableMap.SetTile(position, InvisibleTile);
             }
         }
@@ -39,6 +41,7 @@ public class InteractableTileManager : MonoBehaviour
 
     public void SetTilledTile(Vector3Int position)
     {
+       
         interactableMap.SetTile(position, TilledTile);
 
     }

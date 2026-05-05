@@ -970,7 +970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteractableTileManager
   interactableMap: {fileID: 621773750}
   InvisibleTile: {fileID: 11400000, guid: bd8b6a3a41b67ba45a11be07ccb9c246, type: 2}
-  TilledTile: {fileID: 11400000, guid: 771bc65e6b1f3db4ab0765c6630c270e, type: 2}
+  TilledTile: {fileID: 11400000, guid: 32a53e8603755d44699e3beea978b191, type: 2}
 --- !u!1 &129802068
 GameObject:
   m_ObjectHideFlags: 0
@@ -7634,10 +7634,6 @@ MonoBehaviour:
   LookingLeft: 0
   LookingRight: 0
   isMoving: 0
-  pSprites:
-  - {fileID: -1652396045668998062, guid: 899ac4c601f3e7545b4db597654c16d4, type: 3}
-  - {fileID: -37569145681294648, guid: 5981cecc9f6df674ca668d080c40b4f3, type: 3}
-  - {fileID: 1187492483310113197, guid: 189b8adcb6616904daf9520cb033dff0, type: 3}
 --- !u!4 &1046333587
 Transform:
   m_ObjectHideFlags: 0
