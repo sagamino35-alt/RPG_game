@@ -4,13 +4,14 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
-    public Inventory inventory;
+    
+    public InventoryManager inventory;
+
     InputAction tillAction;
 
     private void Awake()
     {
-        
-        inventory = new Inventory(27);
+        inventory = GetComponent<InventoryManager>();
     }
 
 
@@ -52,12 +53,22 @@ public class Player : MonoBehaviour
         
         //Instantiates item at location
         Item dropItem = Instantiate(item, spawnLocation, Quaternion.identity);
-
-
-         //drop effect
-         dropItem.itemRB.AddForce(spawnLocation * .2f, ForceMode2D.Impulse);
+        //drop effect
+        dropItem.itemRB.AddForce(spawnLocation * .2f, ForceMode2D.Impulse);
 
     }
+
+    public void DropItem(Item item, int numToDrop)
+    {
+        for(int i = 0; i < numToDrop; i++)
+        {
+            DropItem(item);
+        }
+
+    }
+
+
+
 }
 
 

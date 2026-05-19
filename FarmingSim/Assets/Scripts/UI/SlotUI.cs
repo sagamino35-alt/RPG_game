@@ -4,10 +4,11 @@ using TMPro;
 
 public class SlotUI : MonoBehaviour
 {
+    public int slotID;
     public Image itemIcon;
     public TextMeshProUGUI itemAmountText;
 
-    
+    [SerializeField] private GameObject highlight;
 
     public void SetItem(Inventory.Slot slot)
     {
@@ -27,6 +28,10 @@ public class SlotUI : MonoBehaviour
         itemAmountText.text = "";
     }
 
+    public void SetHighlight(bool isOn)
+    {
+        highlight.SetActive(isOn);
 
+    }
 
 }

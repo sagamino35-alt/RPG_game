@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public ItemManager itemManager;
     public InteractableTileManager interactableTileManager;
 
+    public Player player;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -22,6 +24,8 @@ public class GameManager : MonoBehaviour
 
         itemManager = GetComponent<ItemManager>();
         interactableTileManager = GetComponent<InteractableTileManager>();
+
+
 
     }
 }
