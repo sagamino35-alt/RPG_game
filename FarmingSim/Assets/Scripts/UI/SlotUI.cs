@@ -10,6 +10,8 @@ public class SlotUI : MonoBehaviour
 
     [SerializeField] private GameObject highlight;
 
+    public Inventory inventory;
+
     public void SetItem(Inventory.Slot slot)
     {
         if (slot != null)

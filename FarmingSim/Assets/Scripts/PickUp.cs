@@ -14,7 +14,7 @@ public class PickUp : MonoBehaviour
 
             if (item != null)
             {
-                player.inventory.AddItem(item);
+                player.inventory.Add("toolbar", item);
                 Destroy(this.gameObject);
             }
 

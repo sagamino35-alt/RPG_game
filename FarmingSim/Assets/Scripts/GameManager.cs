@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 
     public ItemManager itemManager;
     public InteractableTileManager interactableTileManager;
+    public UImanager uiManager;
+
 
     public Player player;
 
@@ -24,8 +26,10 @@ public class GameManager : MonoBehaviour
 
         itemManager = GetComponent<ItemManager>();
         interactableTileManager = GetComponent<InteractableTileManager>();
+        uiManager = GetComponent<UImanager>();
 
 
+        player = FindAnyObjectByType<Player>();
 
     }
 }

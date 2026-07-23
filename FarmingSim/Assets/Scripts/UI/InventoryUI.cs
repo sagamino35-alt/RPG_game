@@ -28,11 +28,11 @@ public class InventoryUI : MonoBehaviour
     private void Start()
     {
         
-        inventory = 
+        inventory = GameManager.instance.player.inventory.GetInventoryByName(inventoryName);
         SetUpSlots();
 
         ExitInv = InputSystem.actions.FindAction("ExitUI");
-        inventoryPanel.SetActive(false);
+        
         Refresh();
         
 
@@ -83,13 +83,13 @@ public class InventoryUI : MonoBehaviour
 
     void Refresh()
     {
-        if (slots.Count == player.inventory.slots.Count)
+        if (slots.Count == inventory.slots.Count)
         {
             for (int i = 0; i < slots.Count; i++)
             {
-                if (player.inventory.slots[i].itemName != "")
+                if (inventory.slots[i].itemName != "")
                 {
-                    slots[i].SetItem(player.inventory.slots[i]);
+                    slots[i].SetItem(inventory.slots[i]);
                 }
                 else
                 {
@@ -97,38 +97,25 @@ public class InventoryUI : MonoBehaviour
                 }
             }
         }
-        else if (slots.Count == player.toolbar.slots.Count)
-        {
-            for (int i = 0; i < slots.Count; i++)
-            {
-                if (player.toolbar.slots[i].itemName != "")
-                {
-                    slots[i].SetItem(player.toolbar.slots[i]);
-                }
-                else
-                {
-                    slots[i].SetEmpty();
-                }
-            }
-        }
+        
     }
 
     public void Remove()
     {
 
-        Item itemToDrop = GameManager.instance.itemManager.GetItemByName(player.inventory.slots[draggedSlot.slotID].itemName);
+        Item itemToDrop = GameManager.instance.itemManager.GetItemByName(inventory.slots[draggedSlot.slotID].itemName);
 
         if (itemToDrop != null)
         {
             if (dragSingle == true)
             {
-                player.DropItem(itemToDrop);
-                player.inventory.Remove(draggedSlot.slotID);
+                GameManager.instance.player.DropItem(itemToDrop);
+                inventory.Remove(draggedSlot.slotID);
             }
             else
             {
-                player.DropItem(itemToDrop, player.inventory.slots[draggedSlot.slotID].count);
-                player.inventory.Remove(draggedSlot.slotID, player.inventory.slots[draggedSlot.slotID].count);
+                GameManager.instance.player.DropItem(itemToDrop, inventory.slots[draggedSlot.slotID].count);
+                inventory.Remove(draggedSlot.slotID, inventory.slots[draggedSlot.slotID].count);
             }
             
             Refresh();
@@ -146,8 +133,8 @@ public class InventoryUI : MonoBehaviour
         draggedIcon.transform.SetParent(canvas.transform);
         draggedIcon.raycastTarget = false;
 
-        
         draggedIcon.rectTransform.sizeDelta = new Vector2(80,80);
+
         MoveToMousePos(draggedIcon.gameObject);
     }
 
@@ -165,7 +152,7 @@ public class InventoryUI : MonoBehaviour
 
     public void SlotDrop(SlotUI slot)
     {
-        player.inventory.MoveSlot(draggedSlot.slotID, slot.slotID);
+        draggedSlot.inventory.MoveSlot(draggedSlot.slotID, slot.slotID, slot.inventory);
         Refresh();
     }
 
@@ -191,6 +178,7 @@ public class InventoryUI : MonoBehaviour
         {
             slot.slotID = counter;
             counter++;
+            slot.inventory = inventory;
 
         }
 

@@ -7,11 +7,10 @@ public class InventoryManager : MonoBehaviour
 
 
     [Header("mainInv")]
-
     public Inventory mainInv;
     public int mainInvSlotsCount;
 
-    [Header("Toolbar")]
+    [Header("toolbar")]
     public Inventory toolbar;
     public int toolbarSlotsCount;
 
@@ -21,9 +20,17 @@ public class InventoryManager : MonoBehaviour
         mainInv = new Inventory(mainInvSlotsCount);
         toolbar = new Inventory(toolbarSlotsCount);
 
-        inventoryByName.Add("MainInv", mainInv);
-        inventoryByName.Add("Toolbar", toolbar);
+        inventoryByName.Add("mainInv", mainInv);
+        inventoryByName.Add("toolbar", toolbar);
 
+    }
+
+    public void Add(string inventoryName, Item item)
+    {
+        if (inventoryByName.ContainsKey(inventoryName))
+        {
+            inventoryByName[inventoryName].Add(item);
+        }
     }
 
     public Inventory GetInventoryByName(string inventoryName)

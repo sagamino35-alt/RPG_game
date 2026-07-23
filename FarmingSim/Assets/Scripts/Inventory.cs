@@ -96,7 +96,7 @@ public class Inventory
     }
 
 
-    public void AddItem(Item item)
+    public void Add(Item item)
     {
         foreach(Slot slot in slots)
         {
@@ -134,10 +134,10 @@ public class Inventory
         }
     }
 
-    public void MoveSlot(int fromIndex, int toIndex)
+    public void MoveSlot(int fromIndex, int toIndex, Inventory toInventory)
     {
         Slot fromSlot = slots[fromIndex];
-        Slot toSlot = slots[toIndex];
+        Slot toSlot = toInventory.slots[toIndex];
 
         if (toSlot.IsEmpty || toSlot.CanAddItem(fromSlot.itemName))
         {
